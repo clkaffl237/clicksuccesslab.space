@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Passive Income Playbook – Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>Grab Your Playbook</h1>
+  <form action="https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead" method="post">
+    <label>Name <input type="text" name="name" required></label><br>
+    <label>Email <input type="email" name="email" required></label><br>
+    <input type="hidden" name="source" value="funnel2">
+    <button type="submit">Get Instant Access</button>
+  </form>
+  <p>After you submit, you’ll be redirected to the thank-you page.</p>
+</body>
+</html>
