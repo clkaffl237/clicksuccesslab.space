@@ -1,88 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <title>ClickSuccessLab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-<body style="font-family: system-ui, Arial, sans-serif; padding: 24px;">
-  <h1>ClickSuccessLab</h1>
-  <p>Welcome! Drop your info below and we’ll send you the details.</p>
-
-  <!-- LEAD FORM (posts to n8n) -->
-  <form id="leadForm" style="max-width:480px;margin:24px 0;padding:16px;border:1px solid #ddd;border-radius:8px;">
-    <label>Name</label>
-    <input type="text" name="name" placeholder="Your Name" required
-           style="width:100%;margin:8px 0 16px;padding:10px;">
-
-    <label>Email</label>
-    <input type="email" name="email" placeholder="Your Email" required
-           style="width:100%;margin:8px 0 16px;padding:10px;">
-
-    <label>Phone (optional)</label>
-    <input type="text" name="phone" placeholder="123-456-7890"
-           style="width:100%;margin:8px 0 16px;padding:10px;">
-
-    <button type="submit"
-            style="width:100%;padding:12px;background:#0b5ed7;color:#fff;border:none;border-radius:6px;cursor:pointer;">
-      Send
-    </button>
-  </form>
-
-  <div id="status" style="margin-top:12px;"></div>
-
-  <script>
-  const URL = "https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead"; // n8n PRODUCTION webhook
-
-  document.getElementById('leadForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target).entries());
-    const box = document.getElementById('status');
-    box.textContent = "Sending…";
-
-    try {
-      const res = await fetch(URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      const json = await res.json();
-      if (json && json.ok) {
-        box.textContent = "Thanks! We got your info.";
-        e.target.reset();
-      } else {
-        box.textContent = "Hmm… something went wrong. Try again.";
-      }
-    } catch (err) {
-      box.textContent = "Network error. Check connection and try again.";
-    }
-  });<script>
-document.getElementById("leadForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  const statusBox = document.getElementById("status");
-  statusBox.textContent = "⏳ Sending...";
-
-  try {
-    const res = await fetch("https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-
-    // If backend replies 200, show success (even if body is empty)
-    if (res.ok) {
-      statusBox.textContent = "✅ Success! Check your email.";
-      e.target.reset();
-    } else {
-      statusBox.textContent = "⚠️ Error: Something went wrong.";
-    }
-  } catch (err) {
-    statusBox.textContent = "❌ Network error. Please try again.";
-  }
-});
-
-  </script>
-</body>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/hotwaveforce/">
+  </head>
+  <body>
+    <p>Redirecting to HotWave Force...</p>
+  </body>
 </html>
