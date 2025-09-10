@@ -56,7 +56,33 @@
     } catch (err) {
       box.textContent = "Network error. Check connection and try again.";
     }
-  });
+  });<script>
+document.getElementById("leadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  const statusBox = document.getElementById("status");
+  statusBox.textContent = "⏳ Sending...";
+
+  try {
+    const res = await fetch("https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    // If backend replies 200, show success (even if body is empty)
+    if (res.ok) {
+      statusBox.textContent = "✅ Success! Check your email.";
+      e.target.reset();
+    } else {
+      statusBox.textContent = "⚠️ Error: Something went wrong.";
+    }
+  } catch (err) {
+    statusBox.textContent = "❌ Network error. Please try again.";
+  }
+});
+
   </script>
 </body>
 </html>
