@@ -1,88 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>HotWave Force Funnel 1</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <title>Funnel 1 – Hotwave Force</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #111;
-      color: #fff;
-      text-align: center;
-    }
-    h1 {
-      color: #ff4500;
-    }
-    {<form action="./funnel2/" method="get">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <button type="submit">Get Instant Access</button>
-</form>
-      max-width: 400px;
-      margin: 20px auto;
-      background: #222;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 4px;
-    }
-    button {
-      background: #ff4500;
-      color: white;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 4px;
-    }
-    button:hover {
-      background: #e63e00;
-    }
+    body { background:#111; color:#fff; font-family:Arial, sans-serif; text-align:center; padding:40px }
+    .wrap { max-width:760px; margin:0 auto }
+    a.cta { display:inline-block; padding:14px 22px; background:#ff4500; color:#fff; text-decoration:none; border-radius:6px; margin:10px }
+    p { line-height:1.6 }
+    input { padding:10px; margin:5px; width:80%; max-width:300px; border-radius:5px; border:1px solid #ccc }
   </style>
 </head>
 <body>
-  <h1>🔥 Welcome to HotWave Force 🔥</h1>
-  <p>Your exclusive Funnel 1 offer is ready. Fill out the form below to get instant access!</p>
+  <div class="wrap">
+    <h1>Welcome to Hotwave Force</h1>
+    <p>Your exclusive Funnel 1 offer is ready. Enter your details and click below.</p>
 
-  <form id="leadForm">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <button type="submit">Get Instant Access</button>
-  </form>
+    <!-- keep the fields for looks -->
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
 
-  <p><a href="/funnel2/">👉 Go to Funnel 2</a></p>
+    <!-- direct link: no errors, goes to Funnel 2 -->
+    <a class="cta" href="/funnel2/">Get Instant Access</a>
 
-  <script>
-    document.getElementById('leadForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const data = {
-        name: this.name.value,
-        email: this.email.value
-      };
-      try {
-        const res = await fetch("https://clkaffi237.app.n8n.cloud/webhook/clicksuccess-leads", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-        if (res.ok) {
-          alert("✅ Success! Check your email.");
-          this.reset();
-        } else {
-          alert("⚠️ Error: Something went wrong.");
-        }
-      } catch (err) {
-        alert("❌ Network error. Please try again.");
-      }
-    });
-  </script>
+    <!-- backup text link -->
+    <p style="margin-top:20px"><a href="/funnel2/">Go to Funnel 2</a></p>
+  </div>
 </body>
 </html>
