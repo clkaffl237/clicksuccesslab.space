@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Funnel 1 - Hotwave Force</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { background:#111; color:#fff; font-family:Arial, sans-serif; text-align:center; padding:40px; }
-    .wrap { max-width:760px; margin:0 auto; }
-    input { padding:10px; margin:5px; width:80%; max-width:300px; border-radius:4px; border:none; }
-    button { background:#ff4500; color:white; border:none; padding:12px; width:80%; max-width:300px;
-             cursor:pointer; font-size:16px; border-radius:4px; }
-    button:hover { background:#e63e00; }
-    p { line-height:1.6; }
-    a.cta { display:inline-block; padding:14px 22px; background:#ff4500; color:#fff; text-decoration:none; border-radius:4px; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <h1>Welcome to Hotwave Force</h1>
-    <p>Your exclusive Funnel 1 offer is ready. Enter your details and click below.</p>
-
-    <!-- Form: Replace ACTION URL with your n8n PRODUCTION webhook -->
-    <form method="POST" action="PASTE_YOUR_PRODUCTION_WEBHOOK_URL_HERE">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <button type="submit">Get Instant Access</button>
-    </form>
-
-    <p style="margin-top:20px;">
-      <a href="/funnel2" class="cta">Go to Funnel 2</a>
-    </p>
-  </div>
-</body>
-</html>
+<!-- Form wired to n8n Production Webhook -->
+<form method="POST" action="https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <button type="submit">Get Instant Access</button>
+</form>
