@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Funnel 1 – Hotwave Force</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Welcome to Hotwave Force</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { background:#111; color:#fff; font-family:Arial, sans-serif; text-align:center; padding:40px }
+    body {
+      background:#111;
+      color:#fff;
+      font-family:Arial, sans-serif;
+      text-align:center;
+      padding:40px;
+    }
     .wrap { max-width:760px; margin:0 auto }
-    a.cta { display:inline-block; padding:14px 22px; background:#ff4500; color:#fff; text-decoration:none; border-radius:6px; margin:10px }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 4px;
+    }
+    button {
+      background:#ff4500;
+      color:white;
+      border:none;
+      padding:12px;
+      width:100%;
+      cursor:pointer;
+      font-size:16px;
+      border-radius:4px;
+    }
+    button:hover { background:#e63e00; }
     p { line-height:1.6 }
-    input { padding:10px; margin:5px; width:80%; max-width:300px; border-radius:5px; border:1px solid #ccc }
   </style>
 </head>
 <body>
@@ -17,15 +39,17 @@
     <h1>Welcome to Hotwave Force</h1>
     <p>Your exclusive Funnel 1 offer is ready. Enter your details and click below.</p>
 
-    <!-- keep the fields for looks -->
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
+    <!-- FORM wired to n8n webhook -->
+    <form action="https://clkaff1237.app.n8n.cloud/webhook-test/clicksuccess-lead" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <button type="submit">Get Instant Access</button>
+    </form>
 
-    <!-- direct link: no errors, goes to Funnel 2 -->
-    <a class="cta" href="/funnel2/">Get Instant Access</a>
-
-    <!-- backup text link -->
-    <p style="margin-top:20px"><a href="/funnel2/">Go to Funnel 2</a></p>
+    <!-- Backup link to Funnel 2 -->
+    <p style="margin-top:20px">
+      <a href="/funnel2/">Go to Funnel 2</a>
+    </p>
   </div>
 </body>
 </html>
