@@ -1,8 +1,77 @@
-<!doctype html>
+
+<!DOCTYPE html>
+
 <html>
-  <head><meta charset="utf-8"><title>ClickSuccessLab</title></head>
-  <body>
-    <h1>ClickSuccessLab</h1>
-    <p><a href="/funnel2/">Go to Funnel 2</a></p>
-  </body>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>ClickSuccessLab Funnel 2</title>
+
+  <script>
+
+    // Redirect to the thank-you page after form submission
+
+    function redirectAfterSubmit(event) {
+
+      event.preventDefault(); // stop default form behavior
+
+      const form = event.target;
+
+
+
+      // Send data to n8n webhook
+
+      fetch(form.action, {
+
+        method: "POST",
+
+        body: new FormData(form)
+
+      })
+
+      .then(() => {
+
+        // After success, send them to the thank-you/offer page
+
+        window.location.href = "thanks.html";
+
+      })
+
+      .catch(() => {
+
+        alert("Something went wrong. Please try again.");
+
+      });
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1>Funnel 2 Signup</h1>
+
+
+
+  <form action="https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead" method="POST" onsubmit="redirectAfterSubmit(event)">
+
+    <input type="text" name="name" placeholder="Your Name" required />
+
+    <input type="email" name="email" placeholder="Your Email" required />
+
+    <button type="submit">Get Instant Access</button>
+
+  </form>
+
+
+
+  <!-- connect funnel 2 form to n8n webhook -->
+
+</body>
+
 </html>
+
