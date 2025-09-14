@@ -1,8 +1,5 @@
-<!-- Form wired to n8n Production Webhook + redirect to Funnel 2 thank-you -->
-<form method="POST"
-      action="https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead"
-      onsubmit="setTimeout(function(){ window.location.href='/funnel2/thanks.html'; }, 400);">
+<form action="https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead" method="POST">
   <input type="text" name="name" placeholder="Your Name" required />
   <input type="email" name="email" placeholder="Your Email" required />
   <button type="submit">Get Instant Access</button>
-</form>
+</form>connect funnel 1 form to n8n webhook
