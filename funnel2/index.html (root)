@@ -2,39 +2,41 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ClickSuccessLab Funnel 2</title>
-  <script>
-    // Redirect to the thank-you page after form submission
-    function redirectAfterSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-      })
-      .then(() => { window.location.href = "thanks.html"; })
-      .catch(() => { alert("Something went wrong. Please try again."); });
-    }
-  </script>
+  <title>ClickSuccessLab – Start Your Journey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Arial, sans-serif; max-width: 680px; margin: 40px auto; }
-    h1 { margin-bottom: 16px; }
-    input, button { font-size: 16px; padding: 12px; margin: 6px 0; width: 100%; }
-    button { cursor: pointer; }
+    body { background:#f9f9f9; font-family: Arial, sans-serif; text-align:center; padding:60px; }
+    h1 { color:#333; font-size:32px; }
+    p { font-size:18px; margin:20px 0; }
+    a.cta {
+      display:inline-block;
+      background:#007bff;
+      color:#fff;
+      padding:14px 28px;
+      font-size:20px;
+      text-decoration:none;
+      border-radius:6px;
+      margin:20px;
+    }
+    a.cta:hover { background:#0056b3; }
+    footer { margin-top:60px; font-size:14px; color:#777; }
   </style>
 </head>
 <body>
-  <h1>Funnel 2 Signup</h1>
+  <h1>Welcome to ClickSuccessLab 🚀</h1>
+  <p>Your hub for affiliate marketing, funnels, and digital success.</p>
 
-  <form action="https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead"
-        method="POST"
-        onsubmit="redirectAfterSubmit(event)">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <button type="submit">Get Instant Access</button>
-  </form>
+  <!-- Funnel Links -->
+  <a class="cta" href="/hotwaveforce">Start Funnel 1</a>
+  <a class="cta" href="/funnel2">Start Funnel 2</a>
 
-  <!-- connect funnel 2 form to n8n webhook -->
+  <!-- Optional Channel / Social -->
+  <p style="margin-top:40px;">
+    Check out my <a href="https://www.youtube.com/@ClickAffiliate237" target="_blank">YouTube Channel</a> for tips & tutorials.
+  </p>
+
+  <footer>
+    © 2025 ClickSuccessLab. All rights reserved.
+  </footer>
 </body>
 </html>
