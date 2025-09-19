@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Funnel 2 – Offer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background:#111;
+      color:#fff;
+      font-family:Arial, sans-serif;
+      text-align:center;
+      padding:40px;
+    }
+    .wrap {
+      max-width:760px;
+      margin:0 auto;
+    }
+    a.cta {
+      display:inline-block;
+      padding:14px 22px;
+      background:#ff4500;
+      color:#fff;
+      text-decoration:none;
+      border-radius:6px;
+      margin:10px;
+    }
+    p {
+      line-height:1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Funnel 2 – Your Offer</h1>
+    <p>Thanks for signing up! Click below to see your exclusive offer.</p>
 
+    <!-- Affiliate Offer -->
+    <a class="cta" href="https://swiftwebsitebuilder.com/a/miaomk" target="_blank">View Affiliate Offer</a>
+
+    <!-- YouTube Channel -->
+    <a class="cta" href="https://www.youtube.com/@ClickAffiliate237" target="_blank">Watch on YouTube</a>
+
+    <!-- Backup text link -->
+    <p style="margin-top:20px">
+      <a href="/hotwaveforce/">Back to Funnel 1</a>
+    </p>
+  </div>
+</body>
+</html>
+``
