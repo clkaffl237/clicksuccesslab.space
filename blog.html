@@ -1,36 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>blog_a – clicksuccesslab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <title>blog — clicksuccesslab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: Arial, sans-serif; background:#f4f4f4; color:#333; margin:0; }
-    header { background:#111; color:#fff; padding:20px; text-align:center; }
-    .container { max-width:800px; margin:20px auto; padding:20px; background:#fff; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    h1, h2 { margin-top:0; }
-    .post { margin-bottom:40px; }
-    a { color:#ff4500; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    footer { background:#111; color:#aaa; text-align:center; padding:20px; font-size:14px; margin-top:40px; }
+    :root { --bg:#0f1220; --text:#e9edf3; --muted:#aab3c5; --card:#171a34; --link:#0dcaf0; --btn:#007bff; --btn2:#07c06a; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    header{padding:28px 16px;text-align:center}
+    header h1{margin:0 0 8px;font-size:30px}
+    header p{margin:0;color:var(--muted)}
+    nav{margin:12px 0;text-align:center}
+    nav a{color:var(--link);text-decoration:none;margin:0 10px}
+    .wrap{max-width:900px;margin:0 auto;padding:20px}
+    .actions{margin:20px 0;text-align:center}
+    .btn{display:inline-block;margin:8px 6px;padding:12px 18px;border-radius:8px;text-decoration:none;color:#fff;font-weight:700}
+    .btn-f1{background:var(--btn)}
+    .btn-f2{background:var(--btn2)}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    .card{background:var(--card);border-radius:12px;padding:16px}
+    .card h2{margin:0 0 6px;font-size:20px}
+    .card p{margin:0;color:var(--muted)}
+    footer{margin:38px 0 24px;text-align:center;color:var(--muted);font-size:13px}
+    @media (min-width:800px){ .grid{grid-template-columns:1fr 1fr} }
   </style>
 </head>
 <body>
   <header>
-    <h1>clicksuccesslab – blog_a</h1>
-    <p>insights, tips, and updates</p>
+    <h1>blog — clicksuccesslab</h1>
+    <p>simple updates, tips, and notes. click a funnel when you’re ready.</p>
   </header>
 
-  <div class="container">
-    <div class="post">
-      <h2>welcome to blog_a</h2>
-      <p>this is your first blog page under clicksuccesslab. you can update this anytime with new posts or offers.</p>
-      <p><a href="https://clicksuccesslab.space/">⬅ back to homepage</a></p>
+  <nav>
+    <a href="/">home</a>
+    <a href="/about.html">about</a>
+    <a href="https://instagram.com/clkaffl237_/" target="_blank" rel="noopener">instagram</a>
+  </nav>
+
+  <!-- buttons to funnels (keep utm tags) -->
+  <div class="wrap">
+    <div class="actions">
+      <a class="btn btn-f1" data-keep-utm href="/hotwaveforce/index.html">go to funnel 1 (hotwaveforce)</a>
+      <a class="btn btn-f2" data-keep-utm href="/clicksuccesslab/index.html">go to funnel 2 (clicksuccesslab)</a>
+    </div>
+
+    <!-- your blog “posts” (you can add more cards later) -->
+    <div class="grid">
+      <article class="card">
+        <h2>what’s live today</h2>
+        <p>both funnels are online. funnel 1 and funnel 2 buttons above work. utm tags will follow through to the offer.</p>
+      </article>
+
+      <article class="card">
+        <h2>offer in use: videogen</h2>
+        <p>our offer is videogen (<code>?fpr=wesley91</code>). you can switch later without changing this page.</p>
+      </article>
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 clicksuccesslab. all rights reserved.
-  </footer>
+  <footer>© 2025 clicksuccesslab. all rights reserved.</footer>
+
+  <!-- keep any ?utm_* (or any query) and pass it to the funnels -->
+  <script>
+    (function(){
+      var qs = window.location.search;
+      if(!qs) return;
+      document.querySelectorAll('a[data-keep-utm]').forEach(function(a){
+        var href = a.getAttribute('href')||'';
+        if(/^https?:\/\//i.test(href)){
+          a.href = href + (href.indexOf('?')>-1 ? '&' : '?') + qs.slice(1);
+        } else {
+          a.href = href + qs;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
