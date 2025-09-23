@@ -1,11 +1,34 @@
-<a class="btn-offer pass-utm" href="/hotwaveforce/offer.html" rel="noopener">✅ Continue to the offer</a>
-
-<script>
-(function(){
-  var q = location.search;
-  if (!q) return;
-  document.querySelectorAll('a.pass-utm').forEach(function(a){
-    a.href += (a.href.indexOf('?')>-1 ? '&' : '?') + q.slice(1);
-  });
-})();
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanks – HotWaveForce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 { font-size: 2rem; margin-bottom: 20px; }
+    p { margin-bottom: 30px; }
+    .btn {
+      display: inline-block;
+      background: #28a745;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover { background: #218838; }
+  </style>
+</head>
+<body>
+  <h1>🎉 Thanks for joining HotWaveForce!</h1>
+  <p>Your info has been received. Check your inbox for updates and offers.</p>
+  <a class="btn" href="offer.html">Continue to the offer 🚀</a>
+</body>
+</html>
