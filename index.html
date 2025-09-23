@@ -1,63 +1,51 @@
-!DOCTYPE html>
-<html>
+
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ROOT Homepage – ClickSuccessLab</title>
+  <meta charset="utf-8" />
+  <title>clicksuccesslab – start here</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { background:#f9f9f9; font-family: Arial, sans-serif; text-align:center; padding:60px; }
-    h1 { color:#333; font-size:32px; }
-    p { font-size:18px; margin:20px 0; }
-    a.cta {
-      display:inline-block; background:#007bff; color:#fff;
-      padding:14px 28px; font-size:20px; text-decoration:none;
-      border-radius:6px; margin:20px;
-    }
-    a.cta:hover { background:#0056b3; }
-    footer { margin-top:60px; font-size:14px; color:#777; }
+    :root { --bg:#0f1220; --text:#e9edf3; --muted:#aab3c5; --btn:#007bff; --btn2:#0dcaf0; --btnh:#0056b3; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    .wrap { max-width:880px; margin:0 auto; padding:64px 20px; text-align:center; }
+    h1 { font-size:34px; margin:0 0 10px; }
+    p  { font-size:18px; color:var(--muted); margin:0 0 30px; }
+    .cta { display:inline-block; margin:10px; padding:14px 22px; border-radius:8px; text-decoration:none; color:#fff; font-weight:700; }
+    .cta.f1 { background:var(--btn); }
+    .cta.f1:hover { background:var(--btnh); }
+    .cta.f2 { background:var(--btn2); }
+    .fine { margin-top:40px; font-size:13px; color:var(--muted); }
   </style>
+  <script>
+    // OPTIONAL: add your n8n webhook URL here (leave blank to disable)
+    // Example: const N8N_WEBHOOK = "https://YOUR-N8N-DOMAIN/webhook/landing";
+    const N8N_WEBHOOK = "";
+
+    function go(path, funnel){
+      try {
+        if (N8N_WEBHOOK) {
+          const payload = JSON.stringify({ event: "landing_click", funnel, ts: Date.now() });
+          // sendBeacon is non-blocking, won’t delay navigation
+          navigator.sendBeacon(N8N_WEBHOOK, payload);
+        }
+      } catch(e) { /* no-op */ }
+      window.location.href = path;
+    }
+  </script>
 </head>
 <body>
-  <h1>Welcome to ClickSuccessLab <!-- TikTok → Funnel glue -->
-<a<!-- Funnel 1 Button -->
-<a class="cta" href="/funnel1.html">
-  🚀 Start Funnel 1
-</a>
+  <div class="wrap">
+    <h1>Welcome to clicksuccesslab</h1>
+    <p>Your hub for funnels, offers, and fast execution. Pick where you want to start.</p>
 
-<!-- Funnel 2 Button -->
-<a class="cta" href="/funnel2.html">
-  🚀 Start Funnel 2
-</a>
+    <a class="cta f1" href="javascript:void(0)"
+       onclick="go('/hotwaveforce/index.html','hotwaveforce')">Start Funnel 1 (hotwaveforce)</a>
 
-<!-- TikTok Button -->
-<a class="cta" href="https://www.tiktok.com/@clkaffl237" target="_blank" rel="noopener">
-  ❤️ Follow me on TikTok
-</a>
+    <a class="cta f2" href="javascript:void(0)"
+       onclick="go('/clicksuccesslab/index.html','clicksuccesslab')">Start Funnel 2 (clicksuccesslab)</a>
 
-<!-- YouTube Button -->
-<a class="cta" href="https://www.youtube.com/@clkaffl237" target="_blank" rel="noopener">
-  📺 Visit my YouTube Channel
-</a>
-
-<!-- Offer Button -->
-<a class="cta" href="https://videogen.io?fpr=wesley91" target="_blank" rel="noopener">
-  ✅ Continue to the Offer
-</a>href="https://www.tiktok.com/@clkaffl237"
-   target="_blank" rel="noopener"
-   style="display:inline-block;padding:14px 18px;border-radius:10px;background:#000;color:#fff;text-decoration:none;font-weight:700;">
-  ▶️ Visit my TikTok (@clkafl237)
-</a>/h1>
-  <p>Your hub for affiliate marketing, funnels, and digital success.</p>
-
-<!-- Start Funnel 1 (HotWaveForce) -->
-<a class="cta" href="/hotwaveforce/">Start Funnel 1</a>
-
-<!-- Start Funnel 2 (ClickSuccessLab) -->
-<a class="cta" href="/clicksuccesslab/">Start Funnel 2</a>
-  <p style="margin-top:40px;">
-    Visit my <a href="https://www.youtube.com/@clkaffl237" target="_blank">YouTube Channel</a>.
-  </p>
-
-  <footer>© 2025 ClickSuccessLab. All rights reserved.</footer>
+    <div class="fine">All lowercase paths; ready for n8n tracking if you add your webhook.</div>
+  </div>
 </body>
 </html>
