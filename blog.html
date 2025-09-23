@@ -7,7 +7,7 @@
   <style>
     :root{
       --bg:#0f1220; --panel:#12162a; --soft:#0b0e1a; --muted:#aab3c5;
-      --text:#e9edf7; --accent:#3ba9ff; --accent-2:#27d39b; --border:#20263e;
+      --text:#e9edf7; --accent:#3ba9ff; --accent-2:#27d39b; --accent-3:#ff7a59; --border:#20263e;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:linear-gradient(180deg,#0e1220,#0a0d18 60%,#090d17);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
@@ -19,11 +19,12 @@
     p.sub{margin:0;color:var(--muted)}
     nav{display:flex;gap:14px;justify-content:center;margin:18px 0 30px}
     nav a{padding:8px 12px;border:1px solid var(--border);border-radius:8px;color:var(--muted)}
-    .actions{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 26px}
+    .actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:22px 0 26px}
     .btn{display:block;text-align:center;padding:16px 18px;border-radius:10px;font-weight:700;border:1px solid var(--border);background:var(--panel)}
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:linear-gradient(180deg,#1692ff,#0e77d6);color:#fff}
     .btn-secondary{background:linear-gradient(180deg,#20d39b,#17b785);color:#041115}
+    .btn-subscribe{background:linear-gradient(180deg,var(--accent-3),#e85e3a);color:#fff}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 40px}
     .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
     .card h3{margin:0 0 8px;font-size:18px}
@@ -58,6 +59,7 @@
     <div class="actions">
       <a id="to-f1" class="btn btn-primary" href="/hotwaveforce/">go to funnel 1 (hotwaveforce)</a>
       <a id="to-f2" class="btn btn-secondary" href="/clicksuccesslab/">go to funnel 2 (clicksuccesslab)</a>
+      <a id="to-sub" class="btn btn-subscribe" href="#" target="_blank" rel="noopener">subscribe (n8n)</a>
     </div>
 
     <!-- two highlight cards -->
@@ -83,7 +85,7 @@
     <section class="postlist">
       <article class="post">
         <h4>how utm tags flow</h4>
-        <p>add <code>?utm_source=ig&utm_campaign=launch</code> to this page—those tags append to both funnels and the offer.</p>
+        <p>add <code>?utm_source=ig&utm_campaign=launch</code> to this page—those tags append to both funnels, the offer, and your subscribe link.</p>
       </article>
       <article class="post">
         <h4>next tweaks queued</h4>
@@ -94,27 +96,35 @@
     <footer>© 2025 clicksuccesslab. all rights reserved.</footer>
   </div>
 
-  <!-- carry any utm params from this page into both funnel links -->
+  <!-- UTM propagation to funnels + subscribe -->
   <script>
     (function(){
+      // 👇 Put your actual n8n form URL here (one place)
+      const SUBSCRIBE_URL = 'https://YOUR-N8N-FORM-URL';
+
+      // set base hrefs
+      const subA = document.getElementById('to-sub');
+      if (subA) subA.href = SUBSCRIBE_URL;
+
       const qs = location.search;
       if(!qs) return;
-      const addUTM = (id) =>{
-        const a = document.getElementById(id);
+
+      const passKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+      const cur = new URLSearchParams(qs);
+
+      function appendUTM(anchorId){
+        const a = document.getElementById(anchorId);
         if(!a) return;
         try{
           const u = new URL(a.getAttribute('href'), location.origin);
-          // only append standard utm params found in current URL
-          const pass = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
-          pass.forEach(k => {
-            const v = new URLSearchParams(qs).get(k);
-            if(v) u.searchParams.set(k, v);
-          });
-          a.setAttribute('href', u.pathname + (u.search ? ('?' + u.searchParams.toString()) : ''));
+          passKeys.forEach(k => { const v = cur.get(k); if(v) u.searchParams.set(k,v); });
+          a.setAttribute('href', u.href.startsWith(location.origin) ? (u.pathname + (u.search ? ('?' + u.searchParams.toString()) : '')) : u.toString());
         }catch(e){}
-      };
-      addUTM('to-f1');
-      addUTM('to-f2');
+      }
+
+      appendUTM('to-f1');
+      appendUTM('to-f2');
+      appendUTM('to-sub');
     })();
   </script>
 </body>
