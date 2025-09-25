@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ClickSuccessLab • Start Here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{margin:0;background:#0f1220;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:880px;margin:0 auto;padding:64px 24px}
+    h1{font-size:32px;margin:0 0 8px}
+    p{color:#aab3c5;margin:0 0 24px;font-size:16px}
+    .card{background:#161b2e;border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;padding:28px;margin-top:18px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+    .btn{display:inline-block;padding:14px 22px;border-radius:9px;
+      text-decoration:none;color:#fff;font-weight:600;text-align:center;min-width:160px}
+    .f1{background:#0064fa}.f1:hover{background:#0056b3}
+    .f2{background:#00a0fc}.f2:hover{background:#0086d4}
+    .f3{background:#f97316}.f3:hover{background:#ea580c}
+    .f4{background:#22c55e}.f4:hover{background:#1aa34b}
+    .fine{margin-top:36px;font-size:13px;color:#8ea0bd}
+    a.link{color:#8cb4ff}
+    footer{margin-top:44px;text-align:center;color:#8ea0bd;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Welcome to ClickSuccessLab 🚀</h1>
+      <p>Select a funnel below to get started with your free tools and bonuses.</p>
+
+      <div class="cta-row">
+        <a class="btn f1" href="/funnel1.html">Start Funnel 1</a>
+        <a class="btn f2" href="/funnel2.html">Start Funnel 2 (VideoGen)</a>
+        <a class="btn f3" href="/funnel3.html">Start Funnel 3 (AI Automation)</a>
+        <a class="btn f4" href="/funnel4.html">Start Funnel 4 (Website Builder)</a>
+      </div>
+
+      <p class="fine">
+        Need help? Visit the <a class="link" href="/about.html">about page</a> or 
+        <a class="link" href="/thanks.html">thanks page</a>.
+      </p>
+    </div>
+
+    <footer>© 2025 ClickSuccessLab. All rights reserved.</footer>
+  </div>
+</body>
+</html>
