@@ -1,22 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Redirecting to your offer…</title>
-
-  <!-- Sends visitors straight to your VideoGen affiliate link -->
-  <meta http-equiv="refresh" content="0; url=https://videogen.io?fpr=wesley91" />
-
-  <style>
-    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0e0f12; color:#fff; display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:24px;}
-    a.btn {display:inline-block; margin-top:16px; padding:14px 18px; border-radius:12px; background:#0f9d58; color:#fff; text-decoration:none; font-weight:800;}
-  </style>
+<meta charset="utf-8">
+<title>Your Offer Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--bg:#0f1220;--card:#161b2e;--muted:#9aa6bd;--txt:#fff;--link:#8cb4ff}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+  .wrap{max-width:880px;margin:0 auto;padding:56px 24px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px}
+  h1{margin:0 0 10px} p{color:var(--muted);margin:0 0 14px}
+  .btn{display:inline-block;width:100%;text-align:center;padding:12px 14px;border-radius:10px;font-weight:800;color:#fff;text-decoration:none}
+  .b2{background:#06b6d4}.b2:hover{background:#0891b2}
+  .b3{background:#f97316}.b3:hover{background:#ea580c}
+  .b4{background:#22c55e}.b4:hover{background:#16a34a}
+  a.link{color:var(--link)}
+</style>
 </head>
 <body>
-  <div>
-    <h1>Taking you to the offer…</h1>
-    <p>If nothing happens, tap the button below.</p>
-    <a class="btn" href="https://videogen.io?fpr=wesley91">Continue to the Offer</a>
+<div class="wrap">
+  <h1>Your Tools & Bonuses</h1>
+  <p>Pick what you need right now. Each button opens in a new tab.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>VideoGen (Short-Video Tool)</h3>
+      <p>Make scroll-stopping videos fast with ready templates.</p>
+      <a class="btn b2" target="_blank" href="https://videogen.io?fpr=wesley91">Open VideoGen</a>
+    </div>
+
+    <div class="card">
+      <h3>AI Automations (Done-for-you)</h3>
+      <p>I’ll set up a mini workflow for you (lead → sheet → email).</p>
+      <a class="btn b3" href="mailto:clickafflab@gmail.com?subject=Set up my AI automation&body=My name is ____ and my goal is ____">Request Setup</a>
+    </div>
+
+    <div class="card">
+      <h3>Website Builder / Templates</h3>
+      <p>Launch pages quickly with a simple builder + templates.</p>
+      <a class="btn b4" target="_blank" href="https://YOUR-DPS-LINK">Open Builder/Templates</a>
+    </div>
   </div>
+
+  <p style="margin-top:16px"><a class="link" href="/index.html">← back to home</a></p>
+</div>
 </body>
 </html>
