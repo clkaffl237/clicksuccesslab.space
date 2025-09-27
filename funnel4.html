@@ -1,42 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Funnel 4 — Variant of ClickSuccessLab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>body{font-family:system-ui,Arial,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.5}.card{border:1px solid #ddd;border-radius:8px;padding:20px}label{display:block;margin:12px 0 6px}input{width:100%;padding:10px;border:1px solid #ccc;border-radius:6px}.btn{display:inline-block;margin-top:14px;padding:12px 16px;border:0;border-radius:6px;background:#111;color:#fff;cursor:pointer}.note{font-size:.9em;color:#555;margin-top:10px}.err{color:#b00020;margin-top:10px}</style>
+<meta charset="utf-8">
+<title>Funnel 4 • Website Builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{margin:0;background:#0f1220;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+  .wrap{max-width:520px;margin:0 auto;padding:56px 20px;text-align:center}
+  h1{margin:0 0 10px;font-size:26px}
+  p{color:#9aa6bd;margin:0 0 16px}
+  .btn{display:inline-block;width:100%;padding:14px 18px;border-radius:10px;background:#22c55e;color:#fff;text-decoration:none;font-weight:800}
+  .btn:hover{background:#16a34a}
+  a{color:#8cb4ff}
+</style>
 </head>
 <body>
-  <h1>ClickSuccessLab — Version B (A/B Test)</h1>
-  <div class="card">
-    <form id="optin">
-      <label>Name</label><input type="text" name="name" required>
-      <label>Email</label><input type="email" name="email" required>
-
-      <input type="hidden" name="funnel" value="F4_B_Variant">
-
-      <input type="hidden" name="utm_source" id="utm_source">
-      <input type="hidden" name="utm_medium" id="utm_medium">
-      <input type="hidden" name="utm_campaign" id="utm_campaign">
-      <input type="hidden" name="utm_term" id="utm_term">
-      <input type="hidden" name="utm_content" id="utm_content">
-
-      <button class="btn" type="submit">Get instant access</button>
-      <div class="note">No spam. Unsubscribe anytime.</div>
-      <div id="error" class="err" style="display:none;"></div>
-    </form>
-  </div>
-
-  <script>
-    (function(){const p=new URLSearchParams(location.search);["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach(k=>{const el=document.getElementById(k);if(el) el.value=p.get(k)||"";});})();
-    const WEBHOOK="https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead";
-    const NEXT_URL="/offer.html";
-    document.getElementById("optin").addEventListener("submit", async (e)=>{
-      e.preventDefault();
-      const fd=new FormData(e.target);
-      try{const res=await fetch(WEBHOOK,{method:"POST",body:fd});if(!res.ok)throw new Error();window.location.href=NEXT_URL;}
-      catch(err){const box=document.getElementById("error");box.textContent="Something went wrong. Please try again.";box.style.display="block";}
-    });
-  </script>
+<div class="wrap">
+  <h1>Launch Pages Fast</h1>
+  <p>Use a simple builder + ready templates to go live in minutes.</p>
+  <a class="btn" target="_blank" href="https://YOUR-DPS-LINK">Open Website Builder / Templates</a>
+  <p style="margin-top:12px"><a href="/index.html">← back to home</a></p>
+</div>
 </body>
 </html>
