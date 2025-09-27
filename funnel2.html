@@ -1,64 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>clicksuccesslab - funnel 2 (videogen)</title>
-  <meta name="description" content="clicksuccesslab funnel 2. enter your details, we post to n8n, then go straight to the videogen offer.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: arial, sans-serif; margin: 40px; line-height: 1.6; background: #fafafa; color: #333; }
-    h1 { text-align: center; text-transform: lowercase; }
-    p { max-width: 600px; margin: 20px auto; font-size: 16px; }
-    form { max-width: 400px; margin: 30px auto; padding: 20px; border: 1px solid #ccc; border-radius: 6px; background: #fff; }
-    input, button { display: block; width: 100%; margin: 10px 0; padding: 12px; font-size: 14px; }
-    button { background: #0073e6; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
-    .offer-btn { display: block; max-width: 400px; margin: 20px auto; padding: 14px; background: #0073e6; color: #fff; text-align: center; text-decoration: none; border-radius: 6px; font-weight: bold; }
-    .nav { text-align: center; margin-top: 30px; }
-    .nav a { margin: 0 10px; text-decoration: none; color: #0073e6; font-weight: bold; }
-  </style>
+<meta charset="utf-8">
+<title>Funnel 2 • VideoGen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{margin:0;background:#0f1220;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+  .wrap{max-width:520px;margin:0 auto;padding:56px 20px}
+  h1{margin:0 0 10px;font-size:26px}
+  p{color:#9aa6bd;margin:0 0 16px}
+  input,button{width:100%;padding:13px 14px;margin:8px 0;border-radius:10px;border:1px solid #2a2f45;background:#161b2e;color:#fff;font-size:16px}
+  button{background:#06b6d4;border-color:#06b6d4;font-weight:800;cursor:pointer}
+  button:hover{background:#0891b2}
+  .fine{margin-top:12px;color:#9aa6bd;font-size:13px}
+  a{color:#8cb4ff}
+</style>
 </head>
 <body>
-
-  <h1>funnel 2 – videogen</h1>
-  <p>enter your details to get quick video tools. on submit, we’ll save it and send you to videogen.</p>
-
-  <!-- form posts to n8n, then redirects to your affiliate link -->
-  <form id="lead-form">
-    <input type="text" name="name" placeholder="your name" required>
-    <input type="email" name="email" placeholder="your email" required>
-    <button type="submit">start now</button>
+<div class="wrap">
+  <h1>funnel 2 – Videogen</h1>
+  <p>Drop your details to get the video tool. We’ll save it and send you to the offer.</p>
+  <form id="leadForm">
+    <input name="name" placeholder="name" required>
+    <input name="email" type="email" placeholder="email" required>
+    <button type="submit">Start now</button>
   </form>
-
-  <!-- direct offer button (for folks who skip the form) -->
-  <a class="offer-btn" href="https://videogen.io?fpr=wesley91" target="_blank" rel="noopener">
-    continue to the videogen offer
-  </a>
-
-  <div class="nav">
-    <a href="index.html">home</a>
-    <a href="about.html">about</a>
-    <a href="thanks.html">thanks page</a>
-  </div>
-
-  <script>
-    (function(){
-      const WEBHOOK = "https://clkaffl237.app.n8n.cloud/webhook/clicksuccess-lead";
-      const REDIRECT = "https://videogen.io?fpr=wesley91"; // from your email
-      const form = document.getElementById("lead-form");
-
-      form.addEventListener("submit", async function(e){
-        e.preventDefault();
-        try {
-          const data = new URLSearchParams(new FormData(form));
-          await fetch(WEBHOOK, {
-            method: "POST",
-            headers: { "content-type": "application/x-www-form-urlencoded" },
-            body: data
-          });
-        } catch (err) { /* ignore and still redirect */ }
-        window.location.href = REDIRECT;
-      });
-    })();
-  </script>
+  <p class="fine"><a href="/index.html">← back to home</a></p>
+</div>
+<script>
+const WEBHOOK = 'https://clkaffl237.app.n8n.cloud/webhook/f2-videogen';
+const REDIRECT = 'https://videogen.io?fpr=wesley91';
+document.getElementById('leadForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const fd=new FormData(e.target); const payload={name:fd.get('name'),email:fd.get('email'),funnel:'f2-videogen'};
+  try{ fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),mode:'no-cors'});}catch(e){}
+  window.location.href = REDIRECT; // go make money
+});
+</script>
 </body>
 </html>
